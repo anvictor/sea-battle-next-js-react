@@ -34,7 +34,7 @@ const BattleField = ({ title, board, handleClick }: BattleFieldProps) => {
   const getComputerCellColor = (cell: CellValue): string => {
     switch (cell.value) {
       case SHIP_CELL_COLOR:
-        return "rgba(183, 190, 204, 0.63)"; // water-like, hide ships
+        return "rgba(59, 130, 246, 0.15)"; // water-like, hide ships
       case STRIKED_CELL_COLOR:
         return "red";
       case MISSED_CELL_COLOR:
