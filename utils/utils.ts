@@ -66,15 +66,20 @@ const filterValidClosureCells = (
 
 // Gets diagonals or near-cells based on index and offset set
 // used!
-const getNeighborCells = (index: number, offsets: number[][]): number[] => {
+const getNeighborCells = (
+  index: number,
+  offsets: number[][]
+): (number | null)[] => {
   const { rowIndex, cellIndex } = cellToMatrix(index);
-  const neighbors: number[] = [];
+  const neighbors: (number | null)[] = [];
 
   for (const [dy, dx] of offsets) {
     const newRow = rowIndex + dy;
     const newCol = cellIndex + dx;
     if (isInBounds(newRow, newCol)) {
       neighbors.push(matrixToCell(newRow, newCol));
+    } else {
+      neighbors.push(null);
     }
   }
 
